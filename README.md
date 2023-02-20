@@ -15,7 +15,8 @@ iSed (interactive sed) is a small script that allows you to see what your sed co
 The script wraps sed and [icdiff](https://github.com/jeffkaufman/icdiff).
 
 ## Demo
-![A demo of the script running in the temrinal](./docs/demo.png?raw=true)
+![A demo of the script running in the terminal](https://github.com/Mochitto/iSed/blob/main/docs/demo.png?raw=true)
+![A demo of the script running in the terminal](https://github.com/Mochitto/iSed/blob/main/docs/long%20demo.png?raw=true)
 
 ## Installation
 
@@ -28,8 +29,7 @@ pip install icdiff
 git clone https://github.com/Mochitto/iSed.git 
 ```
 - Turn the script into an executable.
-- Move it to your bin directory to.
-- Run it with `iSed`.
+- Move it to your bin directory to run it with `iSed`.
 
 ## Usage
 
