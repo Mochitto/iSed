@@ -1,0 +1,33 @@
+#!/bin/bash
+
+sed "$@" > /tmp/ised_tmp
+exit_code=$?
+
+if [ $exit_code -ne 0 ]
+then
+  exit "$exit_code"
+fi
+
+original_file=${@: -1}
+
+difference=`icdiff -H -N -L "Original file" -L "File after replace" $original_file /tmp/ised_tmp` 
+
+if [ -z "$difference" ]
+then
+  echo -e "😳 There was no match in \033[1m$original_file\033[0m..."
+  exit 1 
+else
+  echo "$difference"
+fi
+read -p $'\n\033[1mDo you wish to replace the original file (y/N)?\033[0m ' answer
+
+case ${answer:0:1} in 
+  y|Y )
+    cp -f /tmp/ised_tmp $original_file 
+    echo -e "🐸 \033[1m$original_file\033[0m has been replaced!"
+    ;;
+  * )
+    echo -e "🗿 Skipped replacing: \033[1m$original_file\033[0m"
+    ;;
+esac
+
